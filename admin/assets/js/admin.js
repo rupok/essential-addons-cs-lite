@@ -6,9 +6,9 @@
 	$( '.eacs-get-pro' ).on( 'click', function() {
 		swal({
 	  		title: '<h2><span>Go</span> Premium',
-	  		type: 'info',
+	  		type: 'warning',
 	  		html:
-	    		'Purchase our <b><a href="https://codecanyon.net/item/essential-addons-for-cornerstone/19232171?ref=Codetic" target="_blank" rel="nofollow">premium version</a></b> to unlock these pro components!',
+	    		'Purchase <b><a href="https://essential-addons.com/cornerstone/buy.php" target="_blank" rel="nofollow">premium version</a></b> to unlock these pro elements.',
 	  		showCloseButton: true,
 	  		showCancelButton: false,
 	  		focusConfirm: true,
@@ -28,14 +28,14 @@
 		e.preventDefault();
 
 		var logoCarousel 		= $( '#logo-carousel' ).attr( 'checked' ) ? 1 : 0;
-		var logoCarouselItem = $( '#logo-carousel-item' ).attr( 'checked' ) ? 1 : 0;
+		var logoCarouselItem 	= $( '#logo-carousel-item' ).attr( 'checked' ) ? 1 : 0;
 		var postCarousel 		= $( '#post-carousel' ).attr( 'checked' ) ? 1 : 0;
 		var productCarousel 	= $( '#product-carousel' ).attr( 'checked' ) ? 1 : 0;
 		var productGrid 		= $( '#product-grid' ).attr( 'checked' ) ? 1 : 0;
 		var teamMembers 		= $( '#team-members' ).attr( 'checked' ) ? 1 : 0;
 		var teamMembersItem 	= $( '#team-members-item' ).attr( 'checked' ) ? 1 : 0;
 		var testimonialItem 	= $( '#testimonial-item' ).attr( 'checked' ) ? 1 : 0;
-		var testimonialSlider = $( '#testimonial-slider' ).attr( 'checked' ) ? 1 : 0;
+		var testimonialSlider 	= $( '#testimonial-slider' ).attr( 'checked' ) ? 1 : 0;
 
 		$.ajax( {
 			url: settings.ajaxurl,

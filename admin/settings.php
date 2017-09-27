@@ -9,13 +9,10 @@ class Eacs_Admin_Settings {
 	protected $is_pro = FALSE;
 	private $eacs_default_settings = array(
 	   'logo-carousel'      => true,
-	   'logo-carousel-item' => true,
 	   'post-carousel'      => true,
 	   'product-carousel'   => true,
 	   'product-grid'       => true,
 	   'team-members'       => true,
-	   'team-members-item'  => true,
-	   'testimonial-item'   => true,
 	   'testimonial-slider' => true,
 	);
 
@@ -72,8 +69,8 @@ class Eacs_Admin_Settings {
 			'manage_options', 
 			'eacs-settings', 
 			array( $this, 'eacs_admin_settings_page' ), 
-			'dashicons-admin-generic', 
-			199  
+			plugins_url( '/', __FILE__ ).'/assets/images/ea-icon.png',
+			199 
 		);
 
 	}
@@ -111,11 +108,21 @@ class Eacs_Admin_Settings {
 			    	<ul>
 				      <li><a href="#general"><i class="fa fa-cogs"></i> General</a></li>
 				      <li><a href="#elements"><i class="fa fa-cubes"></i> Elements</a></li>
-				      <li><a href="#go-pro"><i class="fa fa-magic"></i> Go Pro</a></li>
+				      <li><a href="#go-pro"><i class="fa fa-magic"></i> Go Premium</a></li>
 				      <li><a href="#support"><i class="fa fa-ticket"></i> Support</a></li>
 			    	</ul>
 			    	<div id="general" class="eacs-settings-tab">
-			      	<p>General Settings</p>
+						<div class="row">
+			      			<div class="col-half">
+
+			      				<img src="<?php echo plugins_url( '/', __FILE__ ).'assets/images/eacs-featured.jpg'; ?>">
+			      			</div>
+			      			<div class="col-half">
+			      				<a href="https://essential-addons.com/cornerstone/" target="_blank" class="button eacs-btn eacs-demo-btn">Explore Demos</a>
+			      				<a href="https://essential-addons.com/cornerstone/buy.php" target="_blank" class="button eacs-btn eacs-license-btn">Get Pro License</a>
+
+			    			</div>
+			    		</div>
 			    	</div>
 			    	<div id="elements" class="eacs-settings-tab">
 			      	<div class="row">
@@ -128,14 +135,6 @@ class Eacs_Admin_Settings {
 												<p class="desc"><?php _e( 'Activate / Deactive Logo Carousel', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="logo-carousel" name="logo-carousel" <?php checked( 1, $this->eacs_get_settings['logo-carousel'], true ); ?> >
 				                        <label for="logo-carousel"></label>
-				                    	</div>
-										</td>
-										<td>
-											<div class="eacs-checkbox">
-												<p class="title"><?php _e( 'Logo Carousel Item', 'essential-addons-cs' ); ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Logo Carousel Item', 'essential-addons-cs' ); ?></p>
-				                        <input type="checkbox" id="logo-carousel-item" name="logo-carousel-item" <?php checked( 1, $this->eacs_get_settings['logo-carousel-item'], true ); ?> >
-				                        <label for="logo-carousel-item"></label>
 				                    	</div>
 										</td>
 										<td>
@@ -154,14 +153,6 @@ class Eacs_Admin_Settings {
 				                        <label for="product-carousel"></label>
 				                    	</div>
 										</td>
-										<td>
-											<div class="eacs-checkbox">
-												<p class="title"><?php _e( 'Product Grid', 'essential-addons-cs' ) ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Product Grid', 'essential-addons-cs' ); ?></p>
-				                        <input type="checkbox" id="product-grid" name="product-grid" <?php checked( 1, $this->eacs_get_settings['product-grid'], true ); ?> >
-				                        <label for="product-grid"></label>
-				                    	</div>
-										</td>
 									</tr>
 									<tr>
 										<td>
@@ -174,14 +165,6 @@ class Eacs_Admin_Settings {
 										</td>
 										<td>
 											<div class="eacs-checkbox">
-												<p class="title"><?php _e( 'Team Members Item', 'essential-addons-cs' ) ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Team Members Item', 'essential-addons-cs' ); ?></p>
-				                        <input type="checkbox" id="team-members-item" name="team-members-item" <?php checked( 1, $this->eacs_get_settings['team-members-item'], true ); ?> >
-				                        <label for="team-members-item"></label>
-				                    	</div>
-										</td>
-										<td>
-											<div class="eacs-checkbox">
 												<p class="title"><?php _e( 'Testimonial Slider', 'essential-addons-cs' ) ?></p>
 												<p class="desc"><?php _e( 'Activate / Deactive Testimonial Slider', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="testimonial-slider" name="testimonial-slider" <?php checked( 1, $this->eacs_get_settings['testimonial-slider'], true ); ?> >
@@ -190,17 +173,20 @@ class Eacs_Admin_Settings {
 										</td>
 										<td>
 											<div class="eacs-checkbox">
-												<p class="title"><?php _e( 'Testimonial Item', 'essential-addons-cs' ) ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Testimonial Item', 'essential-addons-cs' ); ?></p>
-				                        <input type="checkbox" id="testimonial-item" name="testimonial-item" <?php checked( 1, $this->eacs_get_settings['testimonial-item'], true ); ?> >
-				                        <label for="testimonial-item"></label>
+												<p class="title"><?php _e( 'Product Grid', 'essential-addons-cs' ) ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactive Product Grid', 'essential-addons-cs' ); ?></p>
+				                        <input type="checkbox" id="product-grid" name="product-grid" <?php checked( 1, $this->eacs_get_settings['product-grid'], true ); ?> >
+				                        <label for="product-grid"></label>
 				                    	</div>
 										</td>
 									</tr>
 					      	</table>
 			      		</div>
 			      		<div class="col-full">
-			      			<h2 class="section-title">Pro Version Components!</h2>
+			      			<div class="premium-elements-title">
+			      				<img src="<?php echo plugins_url( '/', __FILE__ ).'assets/images/lock-icon.png'; ?>">
+			      				<h2 class="section-title">Premium Elements</h2>
+			      			</div>
 			      			<table class="form-table">
 									<tr>
 										<td>
@@ -286,48 +272,42 @@ class Eacs_Admin_Settings {
 				                    	</div>
 										</td>
 									</tr>
-									<tr>
-										<td>
-											<div class="eacs-checkbox">
-												<p class="title"><?php _e( 'Social Icons Item', 'essential-addons-cs' ); ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Social Icons Item', 'essential-addons-cs' ); ?></p>
-				                        <input type="checkbox" id="social-icons-item" name="social-icons-item" disabled >
-				                        <label for="social-icons-item" class="<?php if( (bool) $is_pro === false ) : echo 'eacs-get-pro'; endif; ?>"></label>
-				                    	</div>
-										</td>
-										<td>
-											<div class="eacs-checkbox">
-												<p class="title"><?php _e( 'Product Grid', 'essential-addons-cs' ); ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Product Grid', 'essential-addons-cs' ); ?></p>
-				                        <input type="checkbox" id="product-grid" name="product-grid" disabled >
-				                        <label for="product-grid" class="<?php if( (bool) $is_pro === false ) : echo 'eacs-get-pro'; endif; ?>"></label>
-				                    	</div>
-										</td>
-									</tr>
 					      	</table>
+						  	<div class="eacs-save-btn-wrap">
+						  		<input type="submit" value="Save settings" class="button eacs-btn"/>
+						  	</div>
 			      		</div>
 			      	</div>
 			    	</div>
 			    	<div id="go-pro" class="eacs-settings-tab">
-			      	<p>Go Pro!</p>
+			    		<div class="row go-premium">
+			      			<div class="col-half">
+			      				<h4>Why upgrade to Premium Version?</h4>
+			      				<p>The premium version helps us to continue development of the product incorporating even more features and enhancements.</p>
+
+			      				<p>You will also get world class support from our dedicated team, 24/7.</p>
+
+			      				<a href="https://essential-addons.com/cornerstone/buy.php" target="_blank" class="button eacs-btn eacs-license-btn">Get Premium Version</a>
+			      			</div>
+			      			<div class="col-half">
+			      				<img src="<?php echo plugins_url( '/', __FILE__ ).'assets/images/unlock-gif.gif'; ?>">
+			      			</div>
+			      		</div>
 			    	</div>
 			    	<div id="support" class="eacs-settings-tab">
 			      	<div class="row">
 			      		<div class="col-half">
-				      		<h4>Need any help? Open a ticket!</h4>
-				      		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi maxime quis deleniti iure placeat ducimus voluptate perspiciatis nam eveniet eos accusantium maiores nulla temporibus fuga sunt tenetur error, delectus veniam.</p>
-				      		<a href="#" class="button button-primary">Get Help</a>
+				      		<h4>Need help? Open a support ticket!</h4>
+				      		<p>You can always get support from the community.</p>
+				      		<a href="https://wordpress.org/support/plugin/essential-addons-for-cornerstone-lite" target="_blank" class="button eacs-btn">Get Help</a>
 				      	</div>
-				      	<div class="col-half">
-				      		<h4>Need any help? Open a ticket!</h4>
-				      		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi maxime quis deleniti iure placeat ducimus voluptate perspiciatis nam eveniet eos accusantium maiores nulla temporibus fuga sunt tenetur error, delectus veniam.</p>
-				      		<a href="#" class="button button-primary">Get Help</a>
+			      		<div class="col-half">
+				      		<h4>Need Premium Support?</h4>
+				      		<p>Purchasing a license entitles you to receive premium support.</p>
+				      		<a href="https://essential-addons.com/cornerstone/buy.php" target="_blank" class="button eacs-btn">Get a license</a>
 				      	</div>
 			      	</div>
 			    	</div>
-			  	</div>
-			  	<div class="eacs-settings-footer">
-			  		<input type="submit" value="Save settings" class="button button-primary"/>
 			  	</div>
 		  	</form>
 		</div>
@@ -346,13 +326,10 @@ class Eacs_Admin_Settings {
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 			$this->eacs_settings = array(
 				'logo-carousel' 		=> intval( $_POST['logoCarousel'] ? 1 : 0 ),
-				'logo-carousel-item' => intval( $_POST['logoCarouselItem'] ? 1 : 0 ),
 				'post-carousel' 		=> intval( $_POST['postCarousel'] ? 1 : 0 ),
 				'product-carousel' 	=> intval( $_POST['productCarousel'] ? 1 : 0 ),
 				'product-grid' 		=> intval( $_POST['productGrid'] ? 1 : 0 ),
 				'team-members' 		=> intval( $_POST['teamMembers'] ? 1 : 0 ),
-				'team-members-item' 	=> intval( $_POST['teamMembersItem'] ? 1 : 0 ),
-				'testimonial-item' 	=> intval( $_POST['testimonialItem'] ? 1 : 0 ),
 				'testimonial-slider' => intval( $_POST['testimonialSlider'] ? 1 : 0 ),
 			);
 			update_option( 'eacs_save_settings', $this->eacs_settings );
