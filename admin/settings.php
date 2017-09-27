@@ -64,8 +64,8 @@ class Eacs_Admin_Settings {
 	public function create_eacs_admin_menu() {
 
 		add_menu_page( 
-			'Essential Addon Cornerstone', 
-			'Essential Addon Cornerstone', 
+			'Essential Addons Cornerstone', 
+			'Essential Addons Cornerstone', 
 			'manage_options', 
 			'eacs-settings', 
 			array( $this, 'eacs_admin_settings_page' ), 
@@ -101,7 +101,7 @@ class Eacs_Admin_Settings {
 	   $this->eacs_get_settings = get_option( 'eacs_save_settings', $this->eacs_default_settings );
 		?>
 		<div class="wrap">
-		  	<h2><?php _e( 'Essential Cornerstone Addon Settings', 'essential-addons-cs' ); ?></h2> <hr>
+		  	<h2><?php _e( 'Essential Addons for Cornerstone & Pro Settings', 'essential-addons-cs' ); ?></h2> <hr>
 		  	<div class="response-wrap"></div>
 		  	<form action="" method="POST" id="eacs-settings" name="eacs-settings">
 			  	<div class="eacs-settings-tabs">
