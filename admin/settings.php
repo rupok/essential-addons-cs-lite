@@ -121,6 +121,10 @@ class Eacs_Admin_Settings {
 			      				<a href="https://essential-addons.com/cornerstone/" target="_blank" class="button eacs-btn eacs-demo-btn">Explore Demos</a>
 			      				<a href="https://essential-addons.com/cornerstone/buy.php" target="_blank" class="button eacs-btn eacs-license-btn">Get Pro License</a>
 
+			      				<div class="eacs-notice">
+			      					<h5>Troubleshooting Info</h5>
+			      					<p>After update, if you see any element is not working properly, go to <strong>Elements</strong> Tab, toggle the element and save changes.</p>
+			      				</div>
 			    			</div>
 			    		</div>
 			    	</div>
@@ -306,6 +310,14 @@ class Eacs_Admin_Settings {
 				      		<p>Purchasing a license entitles you to receive premium support.</p>
 				      		<a href="https://essential-addons.com/cornerstone/buy.php" target="_blank" class="button eacs-btn">Get a license</a>
 				      	</div>
+			      	</div>
+
+			      	<div class="row">
+			      		<div class="col-half">
+			      			<div class="essential-addons-community-link">
+			      				<a href="https://www.facebook.com/groups/essentialaddons/" target="_blank"><i class="fa fa-facebook-official fa-2x fa-fw" aria-hidden="true"></i> <span>Join the Facebook Community</span></a>
+			      			</div>
+			      		</div>
 			      	</div>
 			    	</div>
 			  	</div>

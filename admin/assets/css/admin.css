@@ -249,3 +249,40 @@ textarea.eacs-form-control {
 .go-premium .eacs-btn.eacs-license-btn {
 	margin-top: 30px;
 }
+
+.eacs-notice {
+	background-color: #F7F6D4;
+	padding: 10px 15px;
+	border-radius: 5px;
+	box-shadow: 0 0 15px 0 rgba(0,0,0, .15);
+	max-width: 90%;
+	color: #9A7223;
+}
+
+.eacs-notice h5 {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.essential-addons-community-link {
+	background-color: #475A96;
+	margin: 15px 0;
+	display: inline-block;
+	border-radius: 3px;
+}
+
+.essential-addons-community-link:hover {
+	background-color: #3351b2;
+}
+
+.essential-addons-community-link a {
+	color: #fff;
+	text-decoration: none;
+	padding: 15px 20px;
+	font-size: 1.4em;
+	display: flex;
+	align-items: center;
+	align-content: center;
+}
+
+

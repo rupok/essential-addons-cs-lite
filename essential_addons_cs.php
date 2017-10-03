@@ -67,3 +67,24 @@ function essential_addons_cs_icon_map( $icon_map ) {
 	$icon_map['essential-addons-cs'] = ESSENTIAL_ADDONS_CS_URL . 'assets/svg/icons.svg';
 	return $icon_map;
 }
+
+
+// Redirect to options page
+
+register_activation_hook(__FILE__, 'eacs_activate');
+add_action('admin_init', 'eacs_redirect');
+
+function eacs_activate() {
+    add_option('eacs_do_activation_redirect', true);
+}
+
+function eacs_redirect() {
+    if (get_option('eacs_do_activation_redirect', false)) {
+        delete_option('eacs_do_activation_redirect');
+        if(!isset($_GET['activate-multi']))
+        {
+            wp_redirect("admin.php?page=eacs-settings");
+        }
+    }
+}
+
