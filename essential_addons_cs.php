@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Essential Addons for Cornerstone Lite
-Plugin URI: http://codetic.net/demo/essential-addons/
-Description: Essential element library for Cornerstone and Pro page builder for WordPress lite Version. <a href="https://www.codetic.net/go/get-eacs.php">Get Premium Version</a>
+Plugin Name: Essential Addons for Cornerstone
+Plugin URI: https://essential-addons.com/cornerstone/
+Description: Ultimate elements library for Cornerstone and Pro page builder for WordPress. <a href="https://essential-addons.com/cornerstone/buy.php">Get Premium Version</a>
 Author: Codetic
 Author URI: http://www.codetic.net/
 Version: 1.2
