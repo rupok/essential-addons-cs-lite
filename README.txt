@@ -4,7 +4,7 @@ Contributors: codetic
 Tags: cornerstone, cornerstone addon, cornerstone page builder, logo carousel, testimonial carousel, post carousel, product carousel, product grid
 Requires at least: 4.5
 Tested up to: 4.8.2
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -71,6 +71,11 @@ Your existing elements/content will work with premium version. So you won't lose
 
 
 == Changelog ==
+
+= 1.2 =
+* Options Panel imptoved
+* Settings menu added
+* Community support links added
 
 = 1.1 =
 * Options Panel added
