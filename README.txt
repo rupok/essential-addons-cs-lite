@@ -73,7 +73,7 @@ Your existing elements/content will work with premium version. So you won't lose
 == Changelog ==
 
 = 1.2 =
-* Options Panel imptoved
+* Options Panel improved
 * Settings menu added
 * Community support links added
 
