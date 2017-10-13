@@ -5,7 +5,7 @@ Plugin URI: https://essential-addons.com/cornerstone/
 Description: Ultimate elements library for Cornerstone and Pro page builder for WordPress. <a href="https://essential-addons.com/cornerstone/buy.php">Get Premium Version</a>
 Author: Codetic
 Author URI: http://www.codetic.net/
-Version: 1.2
+Version: 1.3.0
 Text Domain: essential-addons-cs
 */
 

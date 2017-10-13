@@ -4,7 +4,7 @@ Contributors: codetic
 Tags: cornerstone, cornerstone addon, cornerstone page builder, logo carousel, testimonial carousel, post carousel, product carousel, product grid
 Requires at least: 4.5
 Tested up to: 4.8.2
-Stable tag: 1.2
+Stable tag: 1.3.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -17,13 +17,15 @@ Essential Addons for Cornerstone is an addons bundle for <a href="https://codeca
  <a href="https://essential-addons.com/cornerstone/" rel="nofollow">Check the demos</a>
 
 ### Features
-* 6+ Elements
+* 7+ Free Elements
 * Fully Customizable
 * Unlimited Design Options
 * Elements are compatible with both Cornerstone &amp; Pro
 
 ### Available Elements
 
+
+* <a href="https://essential-addons.com/cornerstone/post-grid/">Post Grid (Masonry)</a>
 * <a href="https://essential-addons.com/cornerstone/logo-carousel/">Logo Carousel</a>
 * <a href="https://essential-addons.com/cornerstone/post-carousel/">Post Carousel</a>
 * <a href="https://essential-addons.com/cornerstone/testimonial-slider/">Testimonial Slider</a>
@@ -42,7 +44,6 @@ Essential Addons for Cornerstone is an addons bundle for <a href="https://codeca
 * <a href="https://essential-addons.com/cornerstone/image-comparison/">Image Comparison</a>
 * <a href="https://essential-addons.com/cornerstone/responsive-lightbox/">Responsive Lightbox & Modal</a>
 * <a href="https://essential-addons.com/cornerstone/post-block/">Post Block (Flex)</a>
-* <a href="https://essential-addons.com/cornerstone/post-grid/">Post Grid (Masonry)</a>
 
 == Installation ==
 
@@ -71,6 +72,14 @@ Your existing elements/content will work with premium version. So you won't lose
 
 
 == Changelog ==
+
+= 1.3.0 =
+
+* Compatibility fixed with Cornerstone 2.1.x and Pro 1.2.x
+* Post Grid element added
+* Post Carousel element improved and lots of options added
+* Lots of improvement and bugfix
+
 
 = 1.2 =
 * Options Panel improved
