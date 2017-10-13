@@ -55,9 +55,11 @@ $meta_position = ( ($meta_position   == 'entry-footer') ? "entry-footer" : "entr
 ?>
 
 
-<div id="<?= $post_grid_id ?>">
-	<div id="<?= $id ?>" class="<?= $post_grid_class ?>" style="<?= $style ?>" >
-		<?php echo do_shortcode("[eacs_post_grid type=\"$post_type\" count=\"$max_post_count\" excerpt_length=\"$excerpt_length\"  offset=\"$offset\" category=\"$category\" show_excerpt=\"$show_excerpt\" meta_position=\"$meta_position\" no_sticky=\"true\" no_image=\"$hide_featured_image\"]") ?>
+<div id="<?= $id ?>" class="<?= $post_grid_class ?>" style="<?= $style ?>" >
+  <div id="<?= $post_grid_id ?>">
+      <div class="<?php echo $post_grid_class; ?>">
+  		<?php echo do_shortcode("[eacs_post_grid type=\"$post_type\" count=\"$max_post_count\" excerpt_length=\"$excerpt_length\"  offset=\"$offset\" category=\"$category\" show_excerpt=\"$show_excerpt\" meta_position=\"$meta_position\" no_sticky=\"true\" no_image=\"$hide_featured_image\"]") ?>
+    </div>
 	</div>
 
 

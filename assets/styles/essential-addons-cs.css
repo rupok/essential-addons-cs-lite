@@ -870,7 +870,6 @@ body:not(.x-ethos):not(.x-integrity):not(.x-renew):not(.x-icon) .eacs-product-ca
 }
 
 
-
 /* Post Grid Style */
 
 
@@ -1078,3 +1077,25 @@ body:not(.x-ethos):not(.x-integrity):not(.x-renew):not(.x-icon) .eacs-product-ca
 }
 }
 
+/* alignment */
+
+.eacs-post-align-left, .eacs-post-align-left .eacs-entry-header {
+  text-align: left;
+}
+.eacs-post-align-centered, .eacs-post-align-centered .eacs-entry-header {
+  text-align: center;
+}
+
+.eacs-post-align-right, .eacs-post-align-right .eacs-entry-header {
+  text-align: right;
+}
+
+.eacs-post-align-left .eacs-entry-footer {
+  justify-content: flex-start;
+}
+.eacs-post-align-centered .eacs-entry-footer {
+  justify-content: center;
+}
+.eacs-post-align-right .eacs-entry-footer {
+  justify-content: flex-end;
+}
