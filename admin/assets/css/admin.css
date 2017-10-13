@@ -285,4 +285,14 @@ textarea.eacs-form-control {
 	align-content: center;
 }
 
+.eacs-settings-tab img.eacs-logo-admin {
+	padding: 50px 0;
+	max-width: 500px;
+	margin: 0 auto;
+	display: block;
+}
+
+.row.general-row {
+	padding: 20px;
+}
 

@@ -114,20 +114,21 @@ class Eacs_Admin_Settings {
 				      <li><a href="#support"><i class="fa fa-ticket"></i> Support</a></li>
 			    	</ul>
 			    	<div id="general" class="eacs-settings-tab">
-						<div class="row">
-			      			<div class="col-half">
+						<div class="row general-row">
 
-			      				<img src="<?php echo plugins_url( '/', __FILE__ ).'assets/images/eacs-featured.jpg'; ?>">
-			      			</div>
 			      			<div class="col-half">
 			      				<a href="https://essential-addons.com/cornerstone/" target="_blank" class="button eacs-btn eacs-demo-btn">Explore Demos</a>
-			      				<a href="https://essential-addons.com/cornerstone/buy.php" target="_blank" class="button eacs-btn eacs-license-btn">Get Pro License</a>
+			      				<a href="https://essential-addons.com/cornerstone/buy.php" target="_blank" class="button eacs-btn eacs-license-btn">Get another License</a>
 
 			      				<div class="eacs-notice">
 			      					<h5>Troubleshooting Info</h5>
 			      					<p>After update, if you see any element is not working properly, go to <strong>Elements</strong> Tab, toggle the element and save changes.</p>
 			      				</div>
 			    			</div>
+			      			<div class="col-half">
+
+			      				<img class="eacs-logo-admin" src="<?php echo plugins_url( '/', __FILE__ ).'assets/images/eacs-logo.png'; ?>">
+			      			</div>
 			    		</div>
 			    	</div>
 			    	<div id="elements" class="eacs-settings-tab">
