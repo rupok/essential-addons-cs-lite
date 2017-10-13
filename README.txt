@@ -1,6 +1,6 @@
 === Essential Addons for Cornerstone ===
 
-Contributors: codetic
+Contributors: codetic, re_enter_rupok
 Tags: cornerstone, cornerstone addon, cornerstone page builder, logo carousel, testimonial carousel, post carousel, product carousel, product grid
 Requires at least: 4.5
 Tested up to: 4.8.2
@@ -12,7 +12,7 @@ Ultimate elements library for Cornerstone &amp; Pro Page Builders.
 
 == Description ==
 
-Essential Addons for Cornerstone is an addons bundle for <a href="https://codecanyon.net/item/cornerstone-the-wordpress-page-builder/15518868?ref=Codetic" rel="nofollow">Cornerstone</a> &amp; Pro builders with 6+ elements. You can get the <a href="https://essential-addons.com/cornerstone/buy.php">Premium Version</a> with 16+ stunning elements.
+Essential Addons for Cornerstone is an addons bundle for <a href="https://codecanyon.net/item/cornerstone-the-wordpress-page-builder/15518868?ref=Codetic" rel="nofollow">Cornerstone</a> &amp; Pro builders with 7+ elements. You can get the <a href="https://essential-addons.com/cornerstone/buy.php">Premium Version</a> with 16+ stunning elements.
 
  <a href="https://essential-addons.com/cornerstone/" rel="nofollow">Check the demos</a>
 
