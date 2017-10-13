@@ -118,7 +118,7 @@ class Eacs_Admin_Settings {
 
 			      			<div class="col-half">
 			      				<a href="https://essential-addons.com/cornerstone/" target="_blank" class="button eacs-btn eacs-demo-btn">Explore Demos</a>
-			      				<a href="https://essential-addons.com/cornerstone/buy.php" target="_blank" class="button eacs-btn eacs-license-btn">Get another License</a>
+			      				<a href="https://essential-addons.com/cornerstone/buy.php" target="_blank" class="button eacs-btn eacs-license-btn">Update to Premium</a>
 
 			      				<div class="eacs-notice">
 			      					<h5>Troubleshooting Info</h5>

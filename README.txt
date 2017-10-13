@@ -16,6 +16,9 @@ Essential Addons for Cornerstone is an addons bundle for <a href="https://codeca
 
  <a href="https://essential-addons.com/cornerstone/" rel="nofollow">Check the demos</a>
 
+
+### Now 100% Compatible with Cornerstone 2.1.x and Pro 1.2.x
+
 ### Features
 * 7+ Free Elements
 * Fully Customizable
