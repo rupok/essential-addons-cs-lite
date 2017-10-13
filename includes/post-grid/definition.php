@@ -1,38 +1,36 @@
 <?php
 
 /**
- * Element Definition: "Post Carousel"
+ * Element Definition: Post Grid
  */
 
-class EACS_Post_Carousel {
+class EACS_Post_Grid {
 
 	public function ui() {
 		return array(
-        'name'        => 'eacs-post-carousel',
-     		'title' => __( 'EA Post Carousel', 'essential-addons-cs' ),
-        'icon_group' => 'essential-addons-cs',
-        'icon_id' => 'eacs-post-carousel',
+        'name'        => 'eacs-post-grid',
+     		'title' => __( 'EA Post Grid', 'essential-addons-cs' ),
+        'icon_id' => 'block-grid',
     );
 	}
 
-  public function flags() {
-    // dynamic_child allows child elements to render individually, but may cause
-    // styling or behavioral issues in the page builder depending on how your
-    // shortcodes work. If you have trouble with element presentation, try
-    // removing this flag.
-    return array(
-      'dynamic_child' => false
-    );
-  }
+	public function flags() {
+		// dynamic_child allows child elements to render individually, but may cause
+		// styling or behavioral issues in the page builder depending on how your
+		// shortcodes work. If you have trouble with element presentation, try
+		// removing this flag.
+		return array(
+			'dynamic_child' => false
+		);
+	}
 
 }
-
 
 // Recent Post with excerpt
 // ================================
 
 
-function eacs_post_carousel( $atts ) {
+function eacs_post_grid( $atts ) {
   extract( shortcode_atts( array(
     'id'           => '',
     'class'        => '',
@@ -48,7 +46,7 @@ function eacs_post_carousel( $atts ) {
     'no_image'     => '',
     'fade'         => '',
     'meta_position' => ''
-  ), $atts, 'eacs_post_carousel' ) );
+  ), $atts, 'eacs_post_grid' ) );
 
   $allowed_post_types = apply_filters( 'cs_recent_posts_post_types', array( 'post' => 'post' ) );
   $type = ( isset( $allowed_post_types[$type] ) ) ? $allowed_post_types[$type] : 'post';
@@ -166,4 +164,4 @@ function eacs_post_carousel( $atts ) {
   return $output;
 }
 
-add_shortcode( 'eacs_post_carousel', 'eacs_post_carousel' );
+add_shortcode( 'eacs_post_grid', 'eacs_post_grid' );

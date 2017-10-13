@@ -22,6 +22,7 @@ function essential_addons_cs_register_elements() {
 	$eacs_default_settings = array(
 	   'logo-carousel'      => true,
 	   'logo-carousel-item' => true,
+	   'post-grid'     		=> true,
 	   'post-carousel'      => true,
 	   'product-carousel'   => true,
 	   'product-grid'       => true,
@@ -43,6 +44,9 @@ function essential_addons_cs_register_elements() {
 		cornerstone_register_element( 'EACS_Team_Members', 'eacs-team-members', ESSENTIAL_ADDONS_CS_PATH . 'includes/team-members' );
 		cornerstone_register_element( 'EACS_Team_Item', 'eacs-team-item', ESSENTIAL_ADDONS_CS_PATH . 'includes/team-members-item' );
 	}
+	if( $is_component_active['post-grid'] ) {
+		cornerstone_register_element( 'EACS_Post_Grid', 'eacs-post-grid', ESSENTIAL_ADDONS_CS_PATH . 'includes/post-grid' );
+	}
 	if( $is_component_active['post-carousel'] ) {
 		cornerstone_register_element( 'EACS_Post_Carousel', 'eacs-post-carousel', ESSENTIAL_ADDONS_CS_PATH . 'includes/post-carousel' );
 	}
@@ -58,6 +62,9 @@ function essential_addons_cs_enqueue() {
 	$is_component_active = get_option( 'eacs_save_settings' );
 	if( $is_component_active['logo-carousel'] || $is_component_active['post-carousel'] || $is_component_active['team-members'] || $is_component_active['testimonial-slider'] ) {
 		wp_enqueue_script( 'essential_addons_cs-slick-js', ESSENTIAL_ADDONS_CS_URL . 'assets/slick/slick.min.js', array('jquery'), null, true );
+	}	
+	if( $is_component_active['post-grid'] ) {
+		wp_enqueue_script( 'essential_addons_cs-masonry-js', ESSENTIAL_ADDONS_CS_URL . 'assets/js/masonry.min.js', array('jquery'), null, true );
 	}
 	wp_enqueue_style( 'essential_addons_cs-styles', ESSENTIAL_ADDONS_CS_URL . 'assets/styles/essential-addons-cs.css', array(), '1.0.0' );
 	wp_enqueue_style( 'essential_addons_cs-slick', ESSENTIAL_ADDONS_CS_URL . 'assets/slick/slick.css', array(), '1.0.0' );

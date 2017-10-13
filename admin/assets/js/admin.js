@@ -28,13 +28,11 @@
 		e.preventDefault();
 
 		var logoCarousel 		= $( '#logo-carousel' ).attr( 'checked' ) ? 1 : 0;
-		var logoCarouselItem 	= $( '#logo-carousel-item' ).attr( 'checked' ) ? 1 : 0;
+		var postGrid 			= $( '#post-grid' ).attr( 'checked' ) ? 1 : 0;
 		var postCarousel 		= $( '#post-carousel' ).attr( 'checked' ) ? 1 : 0;
 		var productCarousel 	= $( '#product-carousel' ).attr( 'checked' ) ? 1 : 0;
 		var productGrid 		= $( '#product-grid' ).attr( 'checked' ) ? 1 : 0;
 		var teamMembers 		= $( '#team-members' ).attr( 'checked' ) ? 1 : 0;
-		var teamMembersItem 	= $( '#team-members-item' ).attr( 'checked' ) ? 1 : 0;
-		var testimonialItem 	= $( '#testimonial-item' ).attr( 'checked' ) ? 1 : 0;
 		var testimonialSlider 	= $( '#testimonial-slider' ).attr( 'checked' ) ? 1 : 0;
 
 		$.ajax( {
@@ -43,13 +41,11 @@
 			data: { 
 				action: 'save_settings_with_ajax', 
 				logoCarousel: logoCarousel,
-				logoCarouselItem: logoCarouselItem,
+				postGrid: postGrid,
 				postCarousel: postCarousel,
 				productCarousel: productCarousel,
 				productGrid: productGrid,
 				teamMembers: teamMembers,
-				teamMembersItem: teamMembersItem,
-				testimonialItem: testimonialItem,
 				testimonialSlider: testimonialSlider,
 			},
 			success: function( response ) {

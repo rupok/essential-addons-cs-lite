@@ -9,7 +9,9 @@ class Eacs_Admin_Settings {
 	protected $is_pro = FALSE;
 	private $eacs_default_settings = array(
 	   'logo-carousel'      => true,
+	   'post-grid'      	=> true,
 	   'post-carousel'      => true,
+	   'product-grid'  		=> true,
 	   'product-carousel'   => true,
 	   'product-grid'       => true,
 	   'team-members'       => true,
@@ -135,8 +137,16 @@ class Eacs_Admin_Settings {
 									<tr>
 										<td>
 											<div class="eacs-checkbox">
+												<p class="title"><?php _e( 'Post Grid', 'essential-addons-cs' ); ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactivate Post Grid', 'essential-addons-cs' ); ?></p>
+				                        <input type="checkbox" id="post-grid" name="post-grid" <?php checked( 1, $this->eacs_get_settings['post-grid'], true ); ?> >
+				                        <label for="post-grid"></label>
+				                    	</div>
+										</td>
+										<td>
+											<div class="eacs-checkbox">
 												<p class="title"><?php _e( 'Logo Carousel', 'essential-addons-cs' ); ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Logo Carousel', 'essential-addons-cs' ); ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactivate Logo Carousel', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="logo-carousel" name="logo-carousel" <?php checked( 1, $this->eacs_get_settings['logo-carousel'], true ); ?> >
 				                        <label for="logo-carousel"></label>
 				                    	</div>
@@ -144,7 +154,7 @@ class Eacs_Admin_Settings {
 										<td>
 											<div class="eacs-checkbox">
 												<p class="title"><?php _e( 'Post Carousel', 'essential-addons-cs' ); ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Post Carousel', 'essential-addons-cs' ); ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactivate Post Carousel', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="post-carousel" name="post-carousel" <?php checked( 1, $this->eacs_get_settings['post-carousel'], true ); ?> >
 				                        <label for="post-carousel"></label>
 				                    	</div>
@@ -152,7 +162,7 @@ class Eacs_Admin_Settings {
 										<td>
 											<div class="eacs-checkbox">
 												<p class="title"><?php _e( 'Product Carousel', 'essential-addons-cs' ) ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Product Carousel', 'essential-addons-cs' ); ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactivate Product Carousel', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="product-carousel" name="product-carousel" <?php checked( 1, $this->eacs_get_settings['product-carousel'], true ); ?> >
 				                        <label for="product-carousel"></label>
 				                    	</div>
@@ -162,7 +172,7 @@ class Eacs_Admin_Settings {
 										<td>
 											<div class="eacs-checkbox">
 												<p class="title"><?php _e( 'Team Members', 'essential-addons-cs' ) ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Team Members', 'essential-addons-cs' ); ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactivate Team Members', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="team-members" name="team-members" <?php checked( 1, $this->eacs_get_settings['team-members'], true ); ?> >
 				                        <label for="team-members"></label>
 				                    	</div>
@@ -170,7 +180,7 @@ class Eacs_Admin_Settings {
 										<td>
 											<div class="eacs-checkbox">
 												<p class="title"><?php _e( 'Testimonial Slider', 'essential-addons-cs' ) ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Testimonial Slider', 'essential-addons-cs' ); ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactivate Testimonial Slider', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="testimonial-slider" name="testimonial-slider" <?php checked( 1, $this->eacs_get_settings['testimonial-slider'], true ); ?> >
 				                        <label for="testimonial-slider"></label>
 				                    	</div>
@@ -178,7 +188,7 @@ class Eacs_Admin_Settings {
 										<td>
 											<div class="eacs-checkbox">
 												<p class="title"><?php _e( 'Product Grid', 'essential-addons-cs' ) ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Product Grid', 'essential-addons-cs' ); ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactivate Product Grid', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="product-grid" name="product-grid" <?php checked( 1, $this->eacs_get_settings['product-grid'], true ); ?> >
 				                        <label for="product-grid"></label>
 				                    	</div>
@@ -196,7 +206,7 @@ class Eacs_Admin_Settings {
 										<td>
 											<div class="eacs-checkbox">
 												<p class="title"><?php _e( 'Count Down', 'essential-addons-cs' ); ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Count Down', 'essential-addons-cs' ); ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactivate Count Down', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="count-down" name="count-down" disabled >
 				                        <label for="count-down" class="<?php if( (bool) $is_pro === false ) : echo 'eacs-get-pro'; endif; ?>"></label>
 				                    	</div>
@@ -204,7 +214,7 @@ class Eacs_Admin_Settings {
 										<td>
 											<div class="eacs-checkbox">
 												<p class="title"><?php _e( 'Creative Button', 'essential-addons-cs' ); ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Creative Button', 'essential-addons-cs' ); ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactivate Creative Button', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="creative-btn" name="creative-btn" disabled >
 				                        <label for="creative-btn" class="<?php if( (bool) $is_pro === false ) : echo 'eacs-get-pro'; endif; ?>"></label>
 				                    	</div>
@@ -212,7 +222,7 @@ class Eacs_Admin_Settings {
 										<td>
 											<div class="eacs-checkbox">
 												<p class="title"><?php _e( 'Image Comparison', 'essential-addons-cs' ); ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Image Comparison', 'essential-addons-cs' ); ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactivate Image Comparison', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="img-comparison" name="img-comparison" disabled >
 				                        <label for="img-comparison" class="<?php if( (bool) $is_pro === false ) : echo 'eacs-get-pro'; endif; ?>"></label>
 				                    	</div>
@@ -220,7 +230,7 @@ class Eacs_Admin_Settings {
 										<td>
 											<div class="eacs-checkbox">
 												<p class="title"><?php _e( 'Instagram Feed', 'essential-addons-cs' ); ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Instagram Feed', 'essential-addons-cs' ); ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactivate Instagram Feed', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="instagram-feed" name="instagram-feed" disabled >
 				                        <label for="instagram-feed" class="<?php if( (bool) $is_pro === false ) : echo 'eacs-get-pro'; endif; ?>"></label>
 				                    	</div>
@@ -228,7 +238,7 @@ class Eacs_Admin_Settings {
 										<td>
 											<div class="eacs-checkbox">
 												<p class="title"><?php _e( 'Interactive Promo', 'essential-addons-cs' ); ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Interactive Promo', 'essential-addons-cs' ); ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactivate Interactive Promo', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="interactive-promo" name="interactive-promo" disabled >
 				                        <label for="interactive-promo" class="<?php if( (bool) $is_pro === false ) : echo 'eacs-get-pro'; endif; ?>"></label>
 				                    	</div>
@@ -238,7 +248,7 @@ class Eacs_Admin_Settings {
 										<td>
 											<div class="eacs-checkbox">
 												<p class="title"><?php _e( 'Lightbox', 'essential-addons-cs' ); ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Lightbox', 'essential-addons-cs' ); ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactivate Lightbox', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="lightbox" name="lightbox" disabled >
 				                        <label for="lightbox" class="<?php if( (bool) $is_pro === false ) : echo 'eacs-get-pro'; endif; ?>"></label>
 				                    	</div>
@@ -246,23 +256,15 @@ class Eacs_Admin_Settings {
 										<td>
 											<div class="eacs-checkbox">
 												<p class="title"><?php _e( 'Post Block', 'essential-addons-cs' ); ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Post Block', 'essential-addons-cs' ); ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactivate Post Block', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="post-block" name="post-block" disabled >
 				                        <label for="post-block" class="<?php if( (bool) $is_pro === false ) : echo 'eacs-get-pro'; endif; ?>"></label>
 				                    	</div>
 										</td>
 										<td>
 											<div class="eacs-checkbox">
-												<p class="title"><?php _e( 'Post Grid', 'essential-addons-cs' ); ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Post Grid', 'essential-addons-cs' ); ?></p>
-				                        <input type="checkbox" id="post-grid" name="post-grid" disabled >
-				                        <label for="post-grid" class="<?php if( (bool) $is_pro === false ) : echo 'eacs-get-pro'; endif; ?>"></label>
-				                    	</div>
-										</td>
-										<td>
-											<div class="eacs-checkbox">
 												<p class="title"><?php _e( 'Post Timeline', 'essential-addons-cs' ); ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Post Timeline', 'essential-addons-cs' ); ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactivate Post Timeline', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="post-timeline" name="post-timeline" disabled >
 				                        <label for="post-timeline" class="<?php if( (bool) $is_pro === false ) : echo 'eacs-get-pro'; endif; ?>"></label>
 				                    	</div>
@@ -270,7 +272,7 @@ class Eacs_Admin_Settings {
 										<td>
 											<div class="eacs-checkbox">
 												<p class="title"><?php _e( 'Social Icons', 'essential-addons-cs' ); ?></p>
-												<p class="desc"><?php _e( 'Activate / Deactive Social Icons', 'essential-addons-cs' ); ?></p>
+												<p class="desc"><?php _e( 'Activate / Deactivate Social Icons', 'essential-addons-cs' ); ?></p>
 				                        <input type="checkbox" id="social-icons" name="social-icons" disabled >
 				                        <label for="social-icons" class="<?php if( (bool) $is_pro === false ) : echo 'eacs-get-pro'; endif; ?>"></label>
 				                    	</div>
@@ -338,11 +340,12 @@ class Eacs_Admin_Settings {
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 			$this->eacs_settings = array(
 				'logo-carousel' 		=> intval( $_POST['logoCarousel'] ? 1 : 0 ),
+				'post-grid' 			=> intval( $_POST['postGrid'] ? 1 : 0 ),
 				'post-carousel' 		=> intval( $_POST['postCarousel'] ? 1 : 0 ),
-				'product-carousel' 	=> intval( $_POST['productCarousel'] ? 1 : 0 ),
-				'product-grid' 		=> intval( $_POST['productGrid'] ? 1 : 0 ),
-				'team-members' 		=> intval( $_POST['teamMembers'] ? 1 : 0 ),
-				'testimonial-slider' => intval( $_POST['testimonialSlider'] ? 1 : 0 ),
+				'product-carousel' 		=> intval( $_POST['productCarousel'] ? 1 : 0 ),
+				'product-grid' 			=> intval( $_POST['productGrid'] ? 1 : 0 ),
+				'team-members' 			=> intval( $_POST['teamMembers'] ? 1 : 0 ),
+				'testimonial-slider' 	=> intval( $_POST['testimonialSlider'] ? 1 : 0 ),
 			);
 			update_option( 'eacs_save_settings', $this->eacs_settings );
 			return true;
