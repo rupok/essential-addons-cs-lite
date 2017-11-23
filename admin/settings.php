@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * Admin Settings Page
  */
@@ -7,32 +7,45 @@ if( ! defined( 'ABSPATH' ) ) exit(); // Exit if accessed directly
 
 class Eacs_Admin_Settings {
 	protected $is_pro = FALSE;
-	private $eacs_default_settings = array(
-	   'logo-carousel'      => true,
-	   'post-grid'      	=> true,
-	   'post-carousel'      => true,
-	   'product-grid'  		=> true,
-	   'product-carousel'   => true,
-	   'product-grid'       => true,
-	   'team-members'       => true,
-	   'testimonial-slider' => true,
-	);
+	/**
+	 * Contains Default Component Keys
+	 * @var array
+	 * @since 1.3.0
+	 */
+	private $eacs_default_keys = [ 'logo-carousel', 'post-grid', 'post-carousel', 'product-grid', 'product-carousel', 'team-members', 'testimonial-slider'  ];
 
+	/**
+	 * Will Contain All Components Default Values
+	 * @var array
+	 * @since 1.3.0
+	 */
+	private $eacs_default_settings;
+
+	/**
+	 * Will Contain User End Settings Value
+	 * @var array
+	 * @since 1.3.0
+	 */
 	private $eacs_settings;
+
+	/**
+	 * Will Contains Settings Values Fetched From DB
+	 * @var array
+	 * @since 1.3.0
+	 */
 	private $eacs_get_settings;
 
 	/**
 	 * Initializing all default hooks and functions
-	 * @param 
+	 * @param
 	 * @return void
 	 * @since 1.0.0
 	 */
 	public function __construct() {
 
-		add_action( 'admin_menu', array( $this, 'create_eacs_admin_menu' ) );	
+		add_action( 'admin_menu', array( $this, 'create_eacs_admin_menu' ) );
 		add_action( 'init', array( $this, 'enqueue_eacs_admin_scripts' ) );
 		add_action( 'wp_ajax_save_settings_with_ajax', array( $this, 'eacs_save_settings_with_ajax' ) );
-		add_action( 'wp_ajax_nopriv_save_settings_with_ajax', array( $this, 'eacs_save_settings_with_ajax' ) );
 
 	}
 
@@ -59,27 +72,27 @@ class Eacs_Admin_Settings {
 
 	/**
 	 * Create an admin menu.
-	 * @param 
+	 * @param
 	 * @return void
-	 * @since 1.0.0 
+	 * @since 1.0.0
 	 */
 	public function create_eacs_admin_menu() {
 
-		add_menu_page( 
-			'Essential Addons Cornerstone', 
-			'Essential Addons Cornerstone', 
-			'manage_options', 
-			'eacs-settings', 
-			array( $this, 'eacs_admin_settings_page' ), 
+		add_menu_page(
+			'Essential Addons Cornerstone',
+			'Essential Addons Cornerstone',
+			'manage_options',
+			'eacs-settings',
+			array( $this, 'eacs_admin_settings_page' ),
 			plugins_url( '/', __FILE__ ).'/assets/images/ea-icon.png',
-			199 
+			199
 		);
 
 	}
 
 	/**
 	 * Create settings page.
-	 * @param 
+	 * @param
 	 * @return void
 	 * @since 1.0.0
 	 */
@@ -94,6 +107,7 @@ class Eacs_Admin_Settings {
 	    * This section will handle the "eacs_save_settings" array. If any new settings options is added
 	    * then it will matches with the older array and then if it founds anything new then it will update the entire array.
 	    */
+	   $this->eacs_default_settings = array_fill_keys( $this->eacs_default_keys, true );
 	   $this->eacs_get_settings = get_option( 'eacs_save_settings', $this->eacs_default_settings );
 	   $eacs_new_settings = array_diff_key( $this->eacs_default_settings, $this->eacs_get_settings );
 	   if( ! empty( $eacs_new_settings ) ) {
@@ -327,31 +341,35 @@ class Eacs_Admin_Settings {
 		  	</form>
 		</div>
 		<?php
-		
+
 	}
 
 	/**
 	 * Saving data with ajax request
-	 * @param 
+	 * @param
 	 * @return  array in json
-	 * @since 1.0.0 
+	 * @since 1.0.0
 	 */
 	public function eacs_save_settings_with_ajax() {
 
-		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-			$this->eacs_settings = array(
-				'logo-carousel' 		=> intval( $_POST['logoCarousel'] ? 1 : 0 ),
-				'post-grid' 			=> intval( $_POST['postGrid'] ? 1 : 0 ),
-				'post-carousel' 		=> intval( $_POST['postCarousel'] ? 1 : 0 ),
-				'product-carousel' 		=> intval( $_POST['productCarousel'] ? 1 : 0 ),
-				'product-grid' 			=> intval( $_POST['productGrid'] ? 1 : 0 ),
-				'team-members' 			=> intval( $_POST['teamMembers'] ? 1 : 0 ),
-				'testimonial-slider' 	=> intval( $_POST['testimonialSlider'] ? 1 : 0 ),
-			);
-			update_option( 'eacs_save_settings', $this->eacs_settings );
-			return true;
-			die();
+		if( isset( $_POST['fields'] ) ) {
+			parse_str( $_POST['fields'], $settings );
+		}else {
+			return;
 		}
+
+		$this->eacs_settings = array(
+			'logo-carousel' 		=> intval( $settings['logo-carousel'] ? 1 : 0 ),
+			'post-grid' 			=> intval( $settings['post-grid'] ? 1 : 0 ),
+			'post-carousel' 		=> intval( $settings['post-carousel'] ? 1 : 0 ),
+			'product-carousel' 		=> intval( $settings['product-carousel'] ? 1 : 0 ),
+			'product-grid' 			=> intval( $settings['product-grid'] ? 1 : 0 ),
+			'team-members' 			=> intval( $settings['team-members'] ? 1 : 0 ),
+			'testimonial-slider' 	=> intval( $settings['testimonial-slider'] ? 1 : 0 ),
+		);
+		update_option( 'eacs_save_settings', $this->eacs_settings );
+		return true;
+		die();
 
 	}
 
@@ -359,6 +377,6 @@ class Eacs_Admin_Settings {
 
 new Eacs_Admin_Settings();
 
-	
+
 
 

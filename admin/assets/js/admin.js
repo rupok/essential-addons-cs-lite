@@ -16,37 +16,22 @@
 	} );
 
 	// Adding link id after the url
-	$('.eacs-settings-tabs ul li a').click(function (e) {
-		$(this).preventDefault();
+	$('.eacs-settings-tabs ul li a').click(function () {
 		var tabUrl = $(this).attr( 'href' );
-	   window.location.hash = tabUrl;
-	   return false;
+	  	window.location.hash = tabUrl;
+	   	$('html, body').scrollTop(tabUrl);
 	});
 
 	// Saving Data With Ajax Request
 	$( 'form#eacs-settings' ).on( 'submit', function(e) {
 		e.preventDefault();
 
-		var logoCarousel 		= $( '#logo-carousel' ).attr( 'checked' ) ? 1 : 0;
-		var postGrid 			= $( '#post-grid' ).attr( 'checked' ) ? 1 : 0;
-		var postCarousel 		= $( '#post-carousel' ).attr( 'checked' ) ? 1 : 0;
-		var productCarousel 	= $( '#product-carousel' ).attr( 'checked' ) ? 1 : 0;
-		var productGrid 		= $( '#product-grid' ).attr( 'checked' ) ? 1 : 0;
-		var teamMembers 		= $( '#team-members' ).attr( 'checked' ) ? 1 : 0;
-		var testimonialSlider 	= $( '#testimonial-slider' ).attr( 'checked' ) ? 1 : 0;
-
 		$.ajax( {
 			url: settings.ajaxurl,
 			type: 'post',
-			data: { 
-				action: 'save_settings_with_ajax', 
-				logoCarousel: logoCarousel,
-				postGrid: postGrid,
-				postCarousel: postCarousel,
-				productCarousel: productCarousel,
-				productGrid: productGrid,
-				teamMembers: teamMembers,
-				testimonialSlider: testimonialSlider,
+			data: {
+				action: 'save_settings_with_ajax',
+				fields: $( 'form#eacs-settings' ).serialize(),
 			},
 			success: function( response ) {
 				swal(
@@ -63,7 +48,7 @@
 				);
 			}
 		} );
-		
+
 	} );
 
 } )( jQuery );

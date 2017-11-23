@@ -19,18 +19,10 @@ add_filter( 'cornerstone_icon_map', 'essential_addons_cs_icon_map' );
 require_once( ESSENTIAL_ADDONS_CS_PATH.'admin/settings.php' );
 
 function essential_addons_cs_register_elements() {
-	$eacs_default_settings = array(
-	   'logo-carousel'      => true,
-	   'logo-carousel-item' => true,
-	   'post-grid'     		=> true,
-	   'post-carousel'      => true,
-	   'product-carousel'   => true,
-	   'product-grid'       => true,
-	   'team-members'       => true,
-	   'team-members-item'  => true,
-	   'testimonial-item'   => true,
-	   'testimonial-slider' => true,
-	);
+
+	$eacs_default_keys = [ 'logo-carousel', 'post-grid', 'post-carousel', 'product-grid', 'product-carousel', 'team-members', 'testimonial-slider'  ];
+	$eacs_default_settings = array_fill_keys( $eacs_default_keys, true );
+
 	$is_component_active = get_option( 'eacs_save_settings', $eacs_default_settings );
 	if( $is_component_active['logo-carousel'] ) {
 		cornerstone_register_element( 'EACS_Logo_Carousel', 'eacs-logo-carousel', ESSENTIAL_ADDONS_CS_PATH . 'includes/logo-carousel' );
@@ -62,7 +54,7 @@ function essential_addons_cs_enqueue() {
 	$is_component_active = get_option( 'eacs_save_settings' );
 	if( $is_component_active['logo-carousel'] || $is_component_active['post-carousel'] || $is_component_active['team-members'] || $is_component_active['testimonial-slider'] ) {
 		wp_enqueue_script( 'essential_addons_cs-slick-js', ESSENTIAL_ADDONS_CS_URL . 'assets/slick/slick.min.js', array('jquery'), null, true );
-	}	
+	}
 	if( $is_component_active['post-grid'] ) {
 		wp_enqueue_script( 'essential_addons_cs-masonry-js', ESSENTIAL_ADDONS_CS_URL . 'assets/js/masonry.min.js', array('jquery'), null, true );
 	}
