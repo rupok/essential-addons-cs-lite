@@ -18,12 +18,30 @@ add_filter( 'cornerstone_icon_map', 'essential_addons_cs_icon_map' );
 
 require_once( ESSENTIAL_ADDONS_CS_PATH.'admin/settings.php' );
 
+/**
+ * This function will return true for all activated modules
+ */
+function essential_addons_cs_activated_modules() {
+
+   $eael_default_keys = array( 'logo-carousel', 'post-grid', 'post-carousel', 'product-grid', 'product-carousel', 'team-members', 'testimonial-slider' );
+
+   $eael_default_settings  = array_fill_keys( $eael_default_keys, true );
+   $eael_get_settings      = get_option( 'eacs_save_settings', $eael_default_settings );
+   $eael_new_settings      = array_diff_key( $eael_default_settings, $eael_get_settings );
+
+   if( ! empty( $eael_new_settings ) ) {
+      $eael_updated_settings = array_merge( $eael_get_settings, $eael_new_settings );
+      update_option( 'eacs_save_settings', $eael_updated_settings );
+   }
+
+   return $eael_get_settings = get_option( 'eacs_save_settings', $eael_default_settings );
+
+}
+
 function essential_addons_cs_register_elements() {
 
-	$eacs_default_keys = [ 'logo-carousel', 'post-grid', 'post-carousel', 'product-grid', 'product-carousel', 'team-members', 'testimonial-slider'  ];
-	$eacs_default_settings = array_fill_keys( $eacs_default_keys, true );
+	$is_component_active = essential_addons_cs_activated_modules();
 
-	$is_component_active = get_option( 'eacs_save_settings', $eacs_default_settings );
 	if( $is_component_active['logo-carousel'] ) {
 		cornerstone_register_element( 'EACS_Logo_Carousel', 'eacs-logo-carousel', ESSENTIAL_ADDONS_CS_PATH . 'includes/logo-carousel' );
 		cornerstone_register_element( 'EACS_Logo_Carousel_Item', 'eacs-logo-carousel-item', ESSENTIAL_ADDONS_CS_PATH . 'includes/logo-carousel-item' );
