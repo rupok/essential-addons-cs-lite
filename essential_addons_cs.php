@@ -5,7 +5,7 @@ Plugin URI: https://essential-addons.com/cornerstone/
 Description: Ultimate elements library for Cornerstone and Pro page builder for WordPress. <a href="https://essential-addons.com/cornerstone/buy.php">Get Premium Version</a>
 Author: Codetic
 Author URI: http://www.codetic.net/
-Version: 1.3.0
+Version: 1.4.0
 Text Domain: essential-addons-cs
 */
 
@@ -56,9 +56,11 @@ function essential_addons_cs_register_elements() {
 	}
 	if( $is_component_active['post-grid'] ) {
 		cornerstone_register_element( 'EACS_Post_Grid', 'eacs-post-grid', ESSENTIAL_ADDONS_CS_PATH . 'includes/post-grid' );
+		require_once( ESSENTIAL_ADDONS_CS_PATH. 'includes/shortcodes/post-grid.php' );
 	}
 	if( $is_component_active['post-carousel'] ) {
 		cornerstone_register_element( 'EACS_Post_Carousel', 'eacs-post-carousel', ESSENTIAL_ADDONS_CS_PATH . 'includes/post-carousel' );
+		require_once( ESSENTIAL_ADDONS_CS_PATH. 'includes/shortcodes/post-carousel.php' );
 	}
 	if( $is_component_active['product-carousel'] ) {
 		cornerstone_register_element( 'EACS_Product_Carousel', 'eacs-product-carousel', ESSENTIAL_ADDONS_CS_PATH . 'includes/product-carousel' );
@@ -71,13 +73,13 @@ function essential_addons_cs_register_elements() {
 function essential_addons_cs_enqueue() {
 	$is_component_active = get_option( 'eacs_save_settings' );
 	if( $is_component_active['logo-carousel'] || $is_component_active['post-carousel'] || $is_component_active['team-members'] || $is_component_active['testimonial-slider'] ) {
-		wp_enqueue_script( 'essential_addons_cs-slick-js', ESSENTIAL_ADDONS_CS_URL . 'assets/slick/slick.min.js', array('jquery'), null, true );
+		wp_enqueue_script( 'essential_addons_cs-swiper-js', ESSENTIAL_ADDONS_CS_URL . 'assets/swiper/swiper.min.js', array('jquery'), null, true );
 	}
 	if( $is_component_active['post-grid'] ) {
 		wp_enqueue_script( 'essential_addons_cs-masonry-js', ESSENTIAL_ADDONS_CS_URL . 'assets/js/masonry.min.js', array('jquery'), null, true );
 	}
+	wp_enqueue_style( 'essential_addons_cs-swiper', ESSENTIAL_ADDONS_CS_URL . 'assets/swiper/swiper.min.css', array(), null );
 	wp_enqueue_style( 'essential_addons_cs-styles', ESSENTIAL_ADDONS_CS_URL . 'assets/styles/essential-addons-cs.css', array(), '1.0.0' );
-	wp_enqueue_style( 'essential_addons_cs-slick', ESSENTIAL_ADDONS_CS_URL . 'assets/slick/slick.css', array(), '1.0.0' );
 }
 
 function essential_addons_cs_icon_map( $icon_map ) {

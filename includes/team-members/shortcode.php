@@ -52,38 +52,15 @@ switch ( $pagination_position ) {
 
 // Class, ID, Styles
 $team_members_id = "eacs-team-slider-".$randnum;
-$class       = "eacs-team-slider " .$preset_style . " " . $slide_alignment . " " . $add_border . " " . $nav_position . " " . $class ;
+$class       = "eacs-team-slider swiper-container-wrap " .$preset_style . " " . $slide_alignment . " " . $add_border . " " . $nav_position . " " . $class ;
 
 // Toggle
-$auto_play   = ( ($auto_play   == 1) ? "true" : "false" );
-$loop        = ( ($loop == 1) ? "true" : "false" );
-$pause_hover = ( ($pause_hover == 1) ? "true" : "false" );
-$draggable   = ( ($draggable == 1) ? "true" : "false" );
-$variable_width   = ( ($variable_width == 1) ? "true" : "false" );
-
-
-// Pagination type
-switch ( $pagination_type ) {
-  case 'dots':
-    $dots = 'true';
-    $nav  = 'false';
-    break;
-
-  case 'prev_next':
-    $dots = 'false';
-    $nav  = 'true';
-    break;
-
-  case 'dots_nav':
-    $dots = 'true';
-    $nav  = 'true';
-    break;
-
-  default: // NONE
-    $nav  = 'false';
-    $dots = 'false';
-    break;
-}
+$auto_play        = ( ($auto_play   == 1) ? "true" : "false" );
+$loop             = ( ($loop == 1) ? "true" : "false" );
+$centered_slides  = ( ($centered_slides == 1) ? "true" : "false" );
+$draggable        = ( ($draggable == 1) ? "true" : "false" );
+$auto_height      = ( ($auto_height == 1) ? "true" : "false" );
+$draggable        = ( ($draggable == 1) ? "true" : "false" );
 
 
 
@@ -93,79 +70,79 @@ switch ( $pagination_type ) {
 ?>
 
 <div <?php echo cs_atts( array( 'id' => $id, 'class' => $class, 'style' => $style ) ); ?>>
-  <div id="<?= $team_members_id ?>">
-    <?php echo do_shortcode( $content ); ?>
+  <div id="<?= $team_members_id ?>" class="swiper-container">
+      <div class="swiper-wrapper">
+        <?php echo do_shortcode( $content ); ?>
+      </div>
+      <?php if ( $dot_nav == 1 ): ?>
+      <div class="swiper-pagination swiper-pagination-<?= $logo_carousel_id ?>"></div>
+      <?php endif; ?>
+      <?php if ( $arrow_nav == 1 ): ?>
+      <div class="swiper-navigation-wrapper">
+        <div class="swiper-button-next">
+          <i class="x-icon x-icon-angle-right" data-x-icon="" aria-hidden="true"></i>
+        </div>
+        <div class="swiper-button-prev">
+          <i class="x-icon x-icon-angle-left" data-x-icon="" aria-hidden="true"></i>
+        </div>
+      </div>
+      <?php endif; ?>
   </div>
+</div>
 
 <script type="text/javascript">
 
   jQuery(document).ready(function($) {
 
     function createTeamCarousel() {
-      $("<?= '#'.$team_members_id?>").not('.slick-initialized').slick({
+      var mySwiper = new Swiper ("<?= '#'.$team_members_id ?>", {
         autoplay: <?= $auto_play ?>,
-        infinite: <?= $loop ?>,
-        slidesToShow: <?= $max_visible_items ?>,
-        slidesToScroll: <?= $slide_to_scroll ?>,
-        arrows: <?= $nav ?>,
-        dots: <?= $dots ?>,
-        pauseOnHover: <?= $pause_hover ?>,
+        autoplay: {
+          delay: <?= $autoplay_delay ?>,
+        },
+        speed: <?= $transition_speed ?>,
+        loop: <?= $loop ?>,
+        slidesPerView: <?= $max_visible_items ?>,
+        spaceBetween: <?= $space_between ?>,
         draggable: <?= $draggable ?>,
-        variableWidth: <?= $variable_width ?>,
-        responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: <?= $max_visible_items_tablet ?>,
-                slidesToScroll: 1
-              }
+        autoHeight: <?= $auto_height ?>,
+        centeredSlides: <?= $centered_slides ?>,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            480: {
+                slidesPerView:  <?= $max_visible_items_mobile ?>,
             },
-            {
-              breakpoint: 768,
-              settings: {
-                slidesToShow: <?= $max_visible_items_mobile ?>,
-                slidesToScroll: 1
-              }
+            768: {
+                slidesPerView:  <?= $max_visible_items_tablet ?>,
             }
-          ]
+        }
       });
-    }
-
-  createTeamCarousel();
-
-  $(window).on( 'resize', createTeamCarousel );
-
+    };
+    createTeamCarousel();
   });
 </script> 
-</div>
 
 <style type="text/css">
-
-.eacs-team-slider.slide-border-enabled <?php echo '#'.$team_members_id; ?> .eacs-team-item {
-  border: <?= $logo_border_width ?>px solid <?= $logo_border_color?>;
-  margin: <?php echo $slide_spacing; ?>;
-}
-
-.eacs-team-slider <?php echo '#'.$team_members_id; ?> .eacs-team-item {
-  margin: <?php echo $slide_spacing; ?>;
-}
-
-.eacs-team-slider <?php echo '#'.$team_members_id; ?> .slick-prev::before, .eacs-team-slider .slick-next::before {
-  color: <?php echo $slide_nav_color; ?>;
-}
-
-.eacs-team-slider <?php echo '#'.$team_members_id; ?> .slick-dots li button::before {
-  color: <?php echo $slide_nav_bg_color; ?>;
-}
-
-.eacs-team-slider <?php echo '#'.$team_members_id; ?> .slick-dots li.slick-active button::before {
-  color: <?php echo $slide_nav_bg_color; ?>;
-}
-
-.eacs-team-slider <?php echo '#'.$team_members_id; ?> .slick-prev, .eacs-team-slider <?php echo '#'.$team_members_id; ?> .slick-next {
-  background-color: <?php echo $slide_nav_bg_color; ?>;
-}
-
-
+  .eacs-team-slider.slide-border-enabled <?php echo '#'.$team_members_id; ?> .eacs-team-item {
+    border: <?= $logo_border_width ?>px solid <?= $logo_border_color?>;
+  }
+  .eacs-team-slider <?php echo '#'.$team_members_id; ?> .swiper-pagination-bullet {
+    background-color: <?php echo $bullet_nav_color; ?>;
+  }
+  .eacs-team-slider <?php echo '#'.$team_members_id; ?> .swiper-pagination-bullet-active {
+    background-color: <?php echo $active_bullet_nav_color; ?>;
+  }
+  .eacs-team-slider <?php echo '#'.$team_members_id; ?> .swiper-button-next,
+  .eacs-team-slider <?php echo '#'.$team_members_id; ?> .swiper-button-prev {
+    background-color: <?php echo $arrow_nav_bg_color; ?>;
+    color: <?php echo $arrow_nav_color; ?>;
+  }
 </style>
 

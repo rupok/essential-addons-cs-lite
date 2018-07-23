@@ -122,10 +122,10 @@ class Eacs_Admin_Settings {
 		  	<form action="" method="POST" id="eacs-settings" name="eacs-settings">
 			  	<div class="eacs-settings-tabs">
 			    	<ul>
-				      <li><a href="#general"><i class="fa fa-cogs"></i> General</a></li>
-				      <li><a href="#elements"><i class="fa fa-cubes"></i> Elements</a></li>
-				      <li><a href="#go-pro"><i class="fa fa-magic"></i> Go Premium</a></li>
-				      <li><a href="#support"><i class="fa fa-ticket"></i> Support</a></li>
+				      <li><a href="#general"><span class="dashicons dashicons-dashboard"></span> General</a></li>
+				      <li><a href="#elements"><span class="dashicons dashicons-admin-settings"></span> Elements</a></li>
+				      <li><a href="#go-pro"><span class="dashicons dashicons-unlock"></span> Go Premium</a></li>
+				      <li><a href="#support"><span class="dashicons dashicons-sos"></span> Support</a></li>
 			    	</ul>
 			    	<div id="general" class="eacs-settings-tab">
 						<div class="row general-row">
@@ -332,7 +332,7 @@ class Eacs_Admin_Settings {
 			      	<div class="row">
 			      		<div class="col-half">
 			      			<div class="essential-addons-community-link">
-			      				<a href="https://www.facebook.com/groups/essentialaddons/" target="_blank"><i class="fa fa-facebook-official fa-2x fa-fw" aria-hidden="true"></i> <span>Join the Facebook Community</span></a>
+			      				<a href="https://www.facebook.com/groups/essentialaddons/" target="_blank"><span class="dashicons dashicons-facebook"></span> <span>Join the Facebook Community</span></a>
 			      			</div>
 			      		</div>
 			      	</div>

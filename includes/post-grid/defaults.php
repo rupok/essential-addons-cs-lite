@@ -27,4 +27,17 @@ return array(
 	'post_excerpt_color'    => '#7a7a7a',
 	'post_meta_color'    => '',
 	'post_alignment'    => 'eacs-post-align-default',
+	'show_loadmore'						=> false,
+	'loadmore_text'						=> 'Load More',
+	'loadmore_font_size'				=> 14,
+	'loadmore_font_color'				=> '#fff',
+	'loadmore_font_hover_color'			=> '#fff',
+	'loadmore_border_main_color'		=> '',
+	'loadmore_border_hover_color'		=> '',
+	'loadmore_background_color'			=> '#222',
+	'loadmore_background_hover_color'	=> '#27bdbd',
+	'loadmore_border_size'				=> 2,
+	'loadmore_border_radius'			=> 2,
+	'loadmore_button_padding'			=> array( '10px', '20px', '10px', '20px', 'linked' ),
+	'post_icon_type'					=> 'long-arrow-right'
 );

@@ -3,8 +3,9 @@
 Contributors: codetic, re_enter_rupok
 Tags: cornerstone, cornerstone addon, cornerstone page builder, logo carousel, testimonial carousel, post carousel, product carousel, product grid
 Requires at least: 4.5
-Tested up to: 4.8.2
-Stable tag: 1.3.0
+Requires PHP: 5.6
+Tested up to: 4.9.7
+Stable tag: 1.4.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -17,7 +18,7 @@ Essential Addons for Cornerstone is an addons bundle for <a href="https://codeca
  <a href="https://essential-addons.com/cornerstone/" rel="nofollow">Check the demos</a>
 
 
-### Now 100% Compatible with Cornerstone 2.1.x and Pro 1.2.x
+### Now 100% Compatible with Cornerstone 3.2.x and Pro 2.2.x
 
 ### Features
 * 7+ Free Elements
@@ -75,6 +76,16 @@ Your existing elements/content will work with premium version. So you won't lose
 
 
 == Changelog ==
+
+= 1.4.0 =
+
+- Cornerstone and Pro compatibility updated
+- Logo Carousel improved and added more feature
+- Post Carousel improved and added more feature
+- Product Carousel improved and added more feature
+- Testimonial Slider improved and added more feature
+- Team Slider improved and added more feature
+* Feew minor improvement and bugfix
 
 = 1.3.0 =
 

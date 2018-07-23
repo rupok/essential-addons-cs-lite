@@ -63,91 +63,89 @@ switch ( $pagination_position ) {
 
 // Toggle
 $auto_play   = ( ($auto_play   == 1) ? "true" : "false" );
+$centered_slides  = ( ($centered_slides == 1) ? "true" : "false" );
+$auto_height      = ( ($auto_height == 1) ? "true" : "false" );
 $loop        = ( ($loop == 1) ? "true" : "false" );
 $pause_hover = ( ($pause_hover == 1) ? "true" : "false" );
 $draggable   = ( ($draggable == 1) ? "true" : "false" );
 $show_rating   = ( ($show_rating == 1) ? "show_rating" : "hide_rating" );
 
 
-// Pagination type
-switch ( $pagination_type ) {
-  case 'dots':
-    $dots = 'true';
-    $nav  = 'false';
-    break;
-
-  case 'prev_next':
-    $dots = 'false';
-    $nav  = 'true';
-    break;
-
-  case 'dots_nav':
-    $dots = 'true';
-    $nav  = 'true';
-    break;
-
-  default: // NONE
-    $nav  = 'false';
-    $dots = 'false';
-    break;
-}
-
 // Class, ID, Styles
 $product_carousel_id = "eacs-product-carousel-".$randnum;
-$class      = "eacs-product-carousel" . " " . $add_border  . " " . $preset_style  . " " . $show_rating . " " . $nav_position . " " . $class ;
+$class      = "eacs-product-carousel swiper-container-wrap" . " " . $add_border  . " " . $preset_style  . " " . $show_rating . " " . $nav_position . " " . $class ;
 
 ?>
 
 <div <?php echo cs_atts( array( 'id' => $id, 'class' => $class, 'style' => $style ) ); ?>>
   <div id="<?= $product_carousel_id ?>">
-    <?php echo do_shortcode("[recent_products per_page=\"$max_product_count\" category=\"$category\"]") ?>
+    <div class="swiper-container">
+        <?php echo do_shortcode("[recent_products per_page=\"$max_product_count\" category=\"$category\"]") ?>
+
+        <?php if ( $dot_nav == 1 ): ?>
+        <div class="swiper-pagination swiper-pagination-<?= $logo_carousel_id ?>"></div>
+        <?php endif; ?>
+        <?php if ( $arrow_nav == 1 ): ?>
+        <div class="swiper-navigation-wrapper">
+          <div class="swiper-button-next">
+            <i class="x-icon x-icon-angle-right" data-x-icon="" aria-hidden="true"></i>
+          </div>
+          <div class="swiper-button-prev">
+            <i class="x-icon x-icon-angle-left" data-x-icon="" aria-hidden="true"></i>
+          </div>
+        </div>
+        <?php endif; ?>
+    </div>
   </div>
+</div>
 
 <script type="text/javascript">
 
   jQuery(document).ready(function($) {
 
     function createProductCarousel() {
-     $("<?= '#'.$product_carousel_id . ' ' . '.woocommerce .products' ?>").not('.slick-initialized').slick({
-      autoplay: <?= $auto_play ?>,
-      infinite: <?= $loop ?>,
-      slidesToShow: <?= $max_visible_items ?>,
-      slidesToScroll: <?= $slide_to_scroll ?>,
-      arrows: <?= $nav ?>,
-      dots: <?= $dots ?>,
-      pauseOnHover: <?= $pause_hover ?>,
-      draggable: <?= $draggable ?>,
-      responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: <?= $max_visible_items_tablet ?>,
-              slidesToScroll: 1
+
+      $('.eacs-product-carousel .swiper-container .woocommerce .products').addClass('swiper-wrapper');
+      $('.eacs-product-carousel .swiper-container .woocommerce .product').addClass('swiper-slide');
+
+      var mySwiper = new Swiper ("<?= '#'.$product_carousel_id ?> .swiper-container .woocommerce", {
+
+        autoplay: <?= $auto_play ?>,
+        autoplay: {
+          delay: <?= $autoplay_delay ?>,
+        },
+        speed: <?= $transition_speed ?>,
+        loop: <?= $loop ?>,
+        slidesPerView: <?= $max_visible_items ?>,
+        spaceBetween: <?= $space_between ?>,
+        draggable: <?= $draggable ?>,
+        autoHeight: <?= $auto_height ?>,
+        centeredSlides: <?= $centered_slides ?>,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            480: {
+                slidesPerView:  <?= $max_visible_items_mobile ?>,
+            },
+            768: {
+                slidesPerView:  <?= $max_visible_items_tablet ?>,
             }
-          },
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: <?= $max_visible_items_mobile ?>,
-              slidesToScroll: 1
-            }
-          }
-        ]
-    });
-  }
-
-  createProductCarousel();
-
-  $(window).on( 'resize', createProductCarousel );
-
+        }
+      });
+    };
+    createProductCarousel();
   });
 </script> 
-</div>
 
 <style type="text/css">
 
 .eacs-product-carousel <?php echo '#'.$product_carousel_id; ?> .woocommerce li.product {
-  margin: <?php echo $slide_spacing; ?>;
   background-color: <?php echo $product_bg_color; ?>;
   color: <?php echo $product_text_color; ?>;
 }
@@ -160,20 +158,16 @@ $class      = "eacs-product-carousel" . " " . $add_border  . " " . $preset_style
   border: <?= $product_border_width ?>px solid <?= $product_border_color?>;
 }
 
-.eacs-product-carousel <?php echo '#'.$product_carousel_id; ?> .slick-prev::before, <?php echo '#'.$product_carousel_id; ?> .eacs-product-carousel .slick-next::before {
-  color: <?php echo $slide_nav_color; ?>;
+.eacs-product-carousel <?php echo '#'.$product_carousel_id; ?> .swiper-pagination-bullet {
+  background-color: <?php echo $bullet_nav_color; ?>;
 }
-
-.eacs-product-carousel <?php echo '#'.$product_carousel_id; ?> .slick-dots li button::before {
-  color: <?php echo $slide_nav_bg_color; ?>;
+.eacs-product-carousel <?php echo '#'.$product_carousel_id; ?> .swiper-pagination-bullet-active {
+  background-color: <?php echo $active_bullet_nav_color; ?>;
 }
-
-.eacs-product-carousel <?php echo '#'.$product_carousel_id; ?> .slick-dots li.slick-active button::before {
-  color: <?php echo $slide_nav_bg_color; ?>;
-}
-
-.eacs-product-carousel <?php echo '#'.$product_carousel_id; ?> .slick-prev, .eacs-product-carousel <?php echo '#'.$product_carousel_id; ?>  .slick-next {
-  background-color: <?php echo $slide_nav_bg_color; ?>;
+.eacs-product-carousel <?php echo '#'.$product_carousel_id; ?> .swiper-button-next,
+.eacs-product-carousel <?php echo '#'.$product_carousel_id; ?> .swiper-button-prev {
+  background-color: <?php echo $arrow_nav_bg_color; ?>;
+  color: <?php echo $arrow_nav_color; ?>;
 }
 
 .eacs-product-carousel <?php echo '#'.$product_carousel_id; ?> .woocommerce li.product .entry-product, .eacs-product-carousel.eacs-product-reveal <?php echo '#'.$product_carousel_id; ?> .woocommerce li.product .entry-wrap, .eacs-product-carousel.eacs-product-overlay <?php echo '#'.$product_carousel_id; ?> .woocommerce li.product .entry-wrap::before, .eacs-product-carousel.eacs-product-reveal <?php echo '#'.$product_carousel_id; ?> .woocommerce li.product:hover .entry-wrap::before {

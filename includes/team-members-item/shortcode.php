@@ -7,16 +7,18 @@
 // Toggle
 $rounded_avatar   = ( ($rounded_image   == 1) ? "team-avatar-rounded" : "" );
 
-$class = 'eacs-team-item ' . " " . $rounded_avatar . " " . $class;
+$class = 'eacs-team-item swiper-slide ' . " " . $rounded_avatar . " " . $class;
 
 ?>
 
 <div <?php echo cs_atts( array( 'id' => $id, 'class' => $class, 'style' => $style ) ); ?>>
 
 	<div class="eacs-team-image">
+		<?php if (!empty($image)): ?>
 		<figure>
 			<img src="<?php echo $image;?>" style="margin: <?php echo $image_margin; ?>; width: <?php echo $image_width; ?>; border: <?php echo $image_border_width ?>px solid <?php echo $image_border_color?>;" alt="<?php echo $alt_tag;?>">
 		</figure>
+		<?php endif; ?>
 	</div>
 
 	<div class="eacs-team-content" style="background-color: <?php echo $slide_bg_color;?>">

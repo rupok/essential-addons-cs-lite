@@ -120,17 +120,6 @@ return array(
 		),
     'suggest' => __( '3', 'essential-addons-cs' ),
 	),
-
-	// Slide to scroll
-
-	'slide_to_scroll' => array(
-		'type'    => 'number',
-		'ui' => array(
-			'title'   => __( 'Slide to scroll', 'essential-addons-cs' ),
-			'tooltip' => __( 'Set how many items will slide at a time', 'essential-addons-cs' ),
-		),
-    'suggest' => __( '3', 'essential-addons-cs' ),
-	),
 	
 	// Max Items for Tablet
 
@@ -166,6 +155,31 @@ return array(
 		)
 	),
 
+	// Delay
+
+	'autoplay_delay' => array(
+		'type'    => 'number',
+		'ui' => array(
+			'title'   => __( 'Autoplay Delay (ms)', 'essential-addons-cs' ),
+			'tooltip' => __( 'Set the duration between slides (in ms).', 'essential-addons-cs' ),
+		),
+    	'suggest' => __( '5000', 'essential-addons-cs' ),
+		'condition' => array(
+      		'auto_play' => true
+    	)
+	),
+
+	// Speed
+
+	'transition_speed' => array(
+		'type'    => 'number',
+		'ui' => array(
+			'title'   => __( 'Transition Speed (ms)', 'essential-addons-cs' ),
+			'tooltip' => __( 'Set the duration of transition between slides (in ms).', 'essential-addons-cs' ),
+		),
+    	'suggest' => __( '500', 'essential-addons-cs' ),
+	),
+
 	// Loop (instead of rewind)
 
 	'loop' => array(
@@ -176,13 +190,13 @@ return array(
 		)
 	),
 
-	// Pause on Hover
+	// Centered Slides
 
-	'pause_hover' => array(
+	'centered_slides' => array(
 		'type'    => 'toggle',
 		'ui' => array(
-			'title'   => __( 'Pause on Hover?', 'essential-addons-cs' ),
-			'tooltip' => __( 'Will pause the carousel when the user hovers their mouse over it.', 'essential-addons-cs' ),
+			'title'   => __( 'Centered Slides?', 'essential-addons-cs' ),
+			'tooltip' => __( ' 	If true, then active slide will be centered, not always on the left side.', 'essential-addons-cs' ),
 		)
 	),
 
@@ -195,26 +209,38 @@ return array(
 			'tooltip' => __( 'Carousel items will be draggable by mouse', 'essential-addons-cs' ),
 		)
 	),
+	
+	// Auto Height
 
-	// Pagination Type
-
-	'pagination_type' => array(
-		'type' => 'select',
-		'ui'   => array(
-			'title' => __( 'Navigation & Pagination', 'essential-addons-cs' ),
-      'tooltip' => __( 'Select the pagination style.', 'essential-addons-cs' ),
-		),
-		'options' => array(
-			'choices' => array(
-        array( 'value' => 'none',        'label' => __( 'None', 'essential-addons-cs' ) ),
-        array( 'value' => 'dots',        'label' => __( 'Dots Only', 'essential-addons-cs' ) ),
-        array( 'value' => 'prev_next',   'label' => __( 'Prev/Next Only', 'essential-addons-cs' ) ),
-        array( 'value' => 'dots_nav',    'label' => __( 'Dots and Prev/Next', 'essential-addons-cs' ) )
-      ),
-		),
+	'auto_height' => array(
+		'type'    => 'toggle',
+		'ui' => array(
+			'title'   => __( 'Auto Height?', 'essential-addons-cs' ),
+			'tooltip' => __( 'Set to true and slider wrapper will adopt its height to the height of the currently active slide', 'essential-addons-cs' ),
+		)
 	),
 
-	// Pagination Position
+	// Pagination
+
+	'dot_nav' => array(
+		'type'    => 'toggle',
+		'ui' => array(
+			'title'   => __( 'Dot Pagination?', 'essential-addons-cs' ),
+			'tooltip' => __( 'Enable Dot Pagination', 'essential-addons-cs' ),
+		)
+	),
+
+	// Navigation
+
+	'arrow_nav' => array(
+		'type'    => 'toggle',
+		'ui' => array(
+			'title'   => __( 'Arrow Navigation?', 'essential-addons-cs' ),
+			'tooltip' => __( 'Enable Left and Right Arrow Navigation', 'essential-addons-cs' ),
+		)
+	),
+
+	// Navigation Position
 
 	'pagination_position' => array(
 		'type' => 'select',
@@ -229,33 +255,61 @@ return array(
         array( 'value' => 'nav_top_right', 'label' => __( 'Navigation Top Right', 'essential-addons-cs' ) ),
       ),
 		),
+		'condition' => array(
+      'arrow_nav' => true
+    )
 	),
+
 
 	// Add spacing
 
-	'slide_spacing' => array(
-	 	'type' => 'dimensions',
-	 	'ui' => array(
-			'title'   => __( 'Spacing between slides',  'essential-addons-cs' ),
+	'space_between' => array(
+		'type'    => 'number',
+		'ui' => array(
+			'title'   => __( 'Spacing between slides', 'essential-addons-cs' ),
 			'tooltip' => __( 'Select spacing between the slide items.', 'essential-addons-cs' ),
-		)
+		),
+    'suggest' => __( '10', 'essential-addons-cs' ),
+	),
+
+
+	// Bullet Color
+
+	'bullet_nav_color' => array(
+	    'type' => 'color',
+	    'ui' => array(
+	        'title'   => __( 'Pagination Bullet Color', 'essential-addons-cs' ),
+	        'tooltip' => __( 'Set color for bullet pagination', 'essential-addons-cs' ),
+	    )
+
+	),
+
+	// Active Bullet Color
+
+	'active_bullet_nav_color' => array(
+	    'type' => 'color',
+	    'ui' => array(
+	        'title'   => __( 'Active Bullet Color', 'essential-addons-cs' ),
+	        'tooltip' => __( 'Set color for active bullet', 'essential-addons-cs' ),
+	    )
+
 	),
 
 	// Navigation Color
 
-
-	'slide_nav_color' => array(
+	'arrow_nav_color' => array(
 	    'type' => 'color',
 	    'ui' => array(
-	        'title'   => __( 'Navigation Color (Arrows &amp; Bullets)', 'essential-addons-cs' ),
+	        'title'   => __( 'Arrow Navigation Color', 'essential-addons-cs' ),
 	        'tooltip' => __( 'Set color for arrows and bullets', 'essential-addons-cs' ),
 	    )
+
 	),
 
 	// Navigation Background Color
 
 
-	'slide_nav_bg_color' => array(
+	'arrow_nav_bg_color' => array(
 	    'type' => 'color',
 	    'ui' => array(
 	        'title'   => __( 'Navigation Background Color', 'essential-addons-cs' ),

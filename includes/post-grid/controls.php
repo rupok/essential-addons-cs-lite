@@ -111,6 +111,18 @@ return array(
 		)
 	),
 
+	// Choose Icon
+	'post_icon_type' => array(
+        'type' => 'icon-choose',
+        'ui' => array(
+            'title' => __('Overlay Icon', 'essential-addons-cs'),
+            'tooltip' => __('Icon to be displayed on featured image hover.', 'essential-addons-cs'),
+        ),
+		'condition' => array(
+      'hide_featured_image' => false
+    ),
+        'suggest' => 'long-arrow-right',
+    ),
 
 	// Hide Meta
 
@@ -154,7 +166,153 @@ return array(
 	'suggest' => ''
 	),
 
+	// Show Load More
+	'show_loadmore' => array(
+		'type'    => 'toggle',
+		'ui' => array(
+			'title'   => __( 'Show Load More?', 'essential-addons-cs' ),
+			'tooltip' => __( 'Show or hide load more', 'essential-addons-cs' ),
+		),
+		'condition' => array(
+      		'post_type' => 'post'
+    	),
+	),
 
+	// Load More Text
+	'loadmore_text' => array(
+		'type' 		=> 'text',
+		'ui' 		=> array(
+		  'title' 	=> __( 'Loadmore Button Text', 'essential-addons-cs' ),
+		),
+		'context' 	=> 'show_loadmore',
+		'condition' => array(
+      		'show_loadmore' => true,
+      		'post_type' => 'post'
+    	),
+	),
+
+	'loadmore_font_size' => array(
+        'type' => 'number',
+        'ui' => array(
+            'title' => __('Loadmore Button Font Size', 'essential-addons-cs'),
+            'tooltip' => __('Set button font size in pixel value', 'essential-addons-cs'),
+        ),
+        'suggest' => __('16', 'essential-addons-cs'),
+        'condition' => array(
+      		'show_loadmore' => true,
+      		'post_type' => 'post'
+    	),
+    ),
+
+    'loadmore_font_color' => array(
+        'type' => 'color',
+        'ui' => array(
+            'title' => __('Loadmore Font Color', 'essential-addons-cs'),
+        ),
+        'suggest' => __('#ffffff', 'essential-addons-cs'),
+        'condition' => array(
+      		'show_loadmore' => true,
+      		'post_type' => 'post'
+    	),
+    ),
+
+    'loadmore_font_hover_color' => array(
+        'type' => 'color',
+        'ui' => array(
+            'title' => __('Loadmore Font Hover Color', 'essential-addons-cs'),
+        ),
+        'suggest' => __('#00a94e', 'essential-addons-cs'),
+        'condition' => array(
+      		'show_loadmore' => true,
+      		'post_type' => 'post'
+    	),
+    ),
+
+    'loadmore_border_main_color' => array(
+        'type' => 'color',
+        'ui' => array(
+            'title' => __('Loadmore Border Color', 'essential-addons-cs'),
+        ),
+        'suggest' => __('#00a94e', 'essential-addons-cs'),
+        'condition' => array(
+      		'show_loadmore' => true,
+      		'post_type' => 'post'
+    	),
+    ),
+    'loadmore_border_hover_color' => array(
+        'type' => 'color',
+        'ui' => array(
+            'title' => __('Loadmore Border Hover Color', 'essential-addons-cs'),
+        ),
+        'suggest' => __('#00a94e', 'essential-addons-cs'),
+        'condition' => array(
+      		'show_loadmore' => true,
+      		'post_type' => 'post'
+    	),
+    ),
+
+    'loadmore_background_color' => array(
+        'type' => 'color',
+        'ui' => array(
+            'title' => __('Loadmore Background Color', 'essential-addons-cs'),
+        ),
+        'suggest' => __('#222', 'essential-addons-cs'),
+        'condition' => array(
+      		'show_loadmore' => true,
+      		'post_type' => 'post'
+    	),
+    ),
+
+    'loadmore_background_hover_color' => array(
+        'type' => 'color',
+        'ui' => array(
+            'title' => __('Loadmore Background Hover Color', 'essential-addons-cs'),
+        ),
+        'suggest' => __('#27bdbd', 'essential-addons-cs'),
+        'condition' => array(
+      		'show_loadmore' => true,
+      		'post_type' => 'post'
+    	),
+    ),
+
+    'loadmore_border_size' => array(
+        'type' => 'number',
+        'ui' => array(
+            'title' => __('Loadmore Button Border Width (px)', 'essential-addons-cs'),
+            'tooltip' => __('Set border width in pixel value', 'essential-addons-cs'),
+        ),
+        'suggest' => __('2', 'essential-addons-cs'),
+        'condition' => array(
+      		'show_loadmore' => true,
+      		'post_type' => 'post'
+    	),
+    ),
+
+
+    'loadmore_border_radius' => array(
+        'type' => 'number',
+        'ui' => array(
+            'title' => __('Loadmore Border Radius (px)', 'essential-addons-cs'),
+            'tooltip' => __('Set border radius in pixel value', 'essential-addons-cs'),
+        ),
+        'suggest' => __('2', 'essential-addons-cs'),
+        'condition' => array(
+      		'show_loadmore' => true,
+      		'post_type' => 'post'
+    	),
+    ),
+
+    // Button Padding
+    'loadmore_button_padding' => array(
+        'type' => 'dimensions',
+        'ui' => array(
+            'title'   => __( 'Loadmore Button Padding', 'essential-addons-cs' )
+        ),
+        'condition' => array(
+      		'show_loadmore' => true,
+      		'post_type' => 'post'
+    	),
+    ),
 
 	//
 	// Text Align

@@ -8,7 +8,7 @@
 $show_avatar   = ( ($show_avatar   == 1) ? "" : "testimonial-avatar-disabled" );
 $rounded_avatar   = ( ($rounded_image   == 1) ? "testimonial-avatar-rounded" : "" );
 
-$class = 'eacs-testimonial-item ' . $show_avatar . " " . $rounded_avatar . " " . $class;
+$class = 'eacs-testimonial-item swiper-slide ' . $show_avatar . " " . $rounded_avatar . " " . $class;
 
 ?>
 
@@ -16,9 +16,11 @@ $class = 'eacs-testimonial-item ' . $show_avatar . " " . $rounded_avatar . " " .
 
 	<div class="eacs-testimonial-image">
 		<span class="eacs-testimonial-quote" style="color: <?php echo $testimonial_quotation_mark_color ?>"></span>
+		<?php if (!empty($image)): ?>
 		<figure>
 			<img src="<?php echo $image;?>" style="margin: <?php echo $image_margin; ?>; width: <?php echo $image_width; ?>; border: <?php echo $image_border_width ?>px solid <?php echo $image_border_color?>;" alt="<?php echo $alt_tag;?>">
 		</figure>
+		<?php endif; ?>
 	</div>
 
 	<div class="eacs-testimonial-content">
