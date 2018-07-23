@@ -5,7 +5,7 @@ Tags: cornerstone, cornerstone addon, cornerstone page builder, logo carousel, t
 Requires at least: 4.5
 Requires PHP: 5.6
 Tested up to: 4.9.7
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -76,6 +76,10 @@ Your existing elements/content will work with premium version. So you won't lose
 
 
 == Changelog ==
+
+= 1.4.1 =
+
+- Few bugfix and compatibility improved
 
 = 1.4.0 =
 
