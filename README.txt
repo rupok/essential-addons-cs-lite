@@ -4,7 +4,7 @@ Contributors: codetic, re_enter_rupok
 Tags: cornerstone, cornerstone addon, cornerstone page builder, logo carousel, testimonial carousel, post carousel, product carousel, product grid
 Requires at least: 4.5
 Requires PHP: 5.6
-Tested up to: 4.9.7
+Tested up to: 6.2
 Stable tag: 1.4.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
